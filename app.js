@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./controllers/index');
 var usersRouter = require('./controllers/users');
+//Imports user created controllers into the app
+var aboutRouter = require('./controllers/about');
+
 
 var app = express();
 
@@ -21,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+//For app to user the created controllers
+app.use('/about', aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
